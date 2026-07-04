@@ -5,10 +5,16 @@
 ---@type LazySpec
 return {
     "AstroNvim/astrocommunity",
-    { import = "astrocommunity.pack.lua" },
+
+    -- Recipes
     { import = "astrocommunity.recipes.picker-lsp-mappings" },
+    { import = "astrocommunity.recipes.ai" },
+
+    -- Language packs
+    { import = "astrocommunity.pack.lua" },
     { import = "astrocommunity.pack.prettier" },
     { import = "astrocommunity.pack.typescript" },
     { import = "astrocommunity.pack.cs" },
-    -- import/override with your plugins folder
+
+    { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
 }
