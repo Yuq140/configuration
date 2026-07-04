@@ -59,9 +59,10 @@ return {
       n = {
         -- second key is the lefthand side of the map
 
-        -- navigate buffer tabs
-        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+                expandtab = true, -- Redirect tab keys to insert spaces instead
+                tabstop = 4, -- Number of spaces that a <Tab> in the file counts for
+                shiftwidth = 4, -- Number of spaces to use for each step of (auto)indent
+                softtabstop = 4, -- Number of spaces that a <Tab> counts for while performing editing operations
 
         -- mappings seen under group name "Buffer"
         ["<Leader>bd"] = {

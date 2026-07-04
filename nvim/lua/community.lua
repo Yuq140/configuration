@@ -4,8 +4,11 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.recipes.picker-lsp-mappings" },
-  -- import/override with your plugins folder
+    "AstroNvim/astrocommunity",
+    { import = "astrocommunity.pack.lua" },
+    { import = "astrocommunity.recipes.picker-lsp-mappings" },
+    { import = "astrocommunity.pack.prettier" },
+    { import = "astrocommunity.pack.typescript" },
+    { import = "astrocommunity.pack.cs" },
+    -- import/override with your plugins folder
 }
