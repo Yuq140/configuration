@@ -44,7 +44,7 @@ return {
                     ["<A-k>"] = { ":m .-2<cr>==", noremap = true, silent = true, desc = "Move line up" },
 
                     ["<Leader>s"] = {
-                        ":%s/<<C-r><C-w>>/<C-r><C-w>/gI<Left><Left><Left>",
+                        ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>",
                         desc = "Search and Replace current word",
                     },
 

@@ -14,7 +14,9 @@ return {
     { import = "astrocommunity.pack.lua" },
     { import = "astrocommunity.pack.prettier" },
     { import = "astrocommunity.pack.typescript" },
-    { import = "astrocommunity.pack.cs" },
+    { import = "astrocommunity.pack.tailwindcss" },
+    { import = "astrocommunity.pack.cs-omnisharp" },
+    { import = "astrocommunity.pack.mdx" },
 
     { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
 }

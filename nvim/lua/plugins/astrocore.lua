@@ -3,6 +3,21 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+local os_options = vim.fn.has "win32" == 1
+        and {
+            shell = "pwsh",
+            shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+            shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+            shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+            shellquote = "",
+            shellxquote = "",
+
+            undodir = os.getenv "USERPROFILE" .. "/.vim/undodir",
+        }
+    or {
+        undodir = os.getenv "HOME" .. "/.vim/undodir",
+    }
+
 ---@type LazySpec
 return {
     "AstroNvim/astrocore",
@@ -37,7 +52,7 @@ return {
         -- },
         -- vim options can be configured here
         options = {
-            opt = { -- vim.opt.<key>
+            opt = vim.tbl_extend("force", { -- vim.opt.<key>
                 termguicolors = true,
                 number = true, -- sets vim.opt.number
                 relativenumber = true, -- sets vim.opt.relativenumber
@@ -56,7 +71,6 @@ return {
 
                 swapfile = false,
                 backup = false,
-                undodir = os.getenv "HOME" .. "/.vim/undodir",
                 undofile = true,
 
                 hlsearch = false,
@@ -80,7 +94,7 @@ return {
                     "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor", -- Blinking settings
                     "sm:block-blinkwait175-blinkoff150-blinkon175",
                 },
-            },
+            }, os_options),
             g = { -- vim.g.<key>
                 -- configure global vim variables (vim.g)
                 -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
