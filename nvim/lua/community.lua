@@ -19,4 +19,5 @@ return {
     { import = "astrocommunity.pack.mdx" },
 
     { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+    { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 }
