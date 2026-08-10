@@ -88,6 +88,14 @@ function gwt {
     }
 }
 
+function gsw {
+    $branch = git branch --all --sort=-committerdate | fzf --ansi --height=20% --info=inline --preview 'git log -n 5 --color=always --oneline {-1}'
+
+    if ($branch) {
+        git switch $branch.trim()
+    }
+}
+
 function Change-Project {
     param(
         [string]$Name
