@@ -13,6 +13,7 @@ return {
     -- Language packs
     { import = "astrocommunity.pack.lua" },
     { import = "astrocommunity.pack.prettier" },
+    { import = "astrocommunity.pack.html-css" },
     { import = "astrocommunity.pack.typescript" },
     { import = "astrocommunity.pack.tailwindcss" },
     { import = "astrocommunity.pack.cs-omnisharp" },
@@ -20,4 +21,6 @@ return {
 
     { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
     { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+
+    { import = "astrocommunity.colorscheme.kanagawa-nvim" },
 }

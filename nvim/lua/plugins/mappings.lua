@@ -34,7 +34,7 @@ return {
                     ["H"] = { "^" },
                     ["L"] = { "$" },
 
-                    ["<C-_>"] = { "gcc", remap = true, desc = "Toggle comment line" },
+                    ["<C-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
                     ["<C-d>"] = { "<C-d>zz" },
                     ["<C-u>"] = { "<C-u>zz" },
                     ["n"] = { "nzzzv", desc = "Go to next occurence of the word" },
@@ -56,7 +56,7 @@ return {
                     ["<Leader>/"] = false,
 
                     -- Custom Mappings
-                    ["<C-_>"] = { "gc", remap = true, desc = "Toggle comment" },
+                    ["<C-/>"] = { "gc", remap = true, desc = "Toggle comment" },
                     ["<A-j>"] = {
                         ":m '>+1<cr>gv=gv",
                         noremap = true,
