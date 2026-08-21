@@ -89,11 +89,36 @@ function gwt {
 }
 
 function gsw {
-    $branch = git branch --all --sort=-committerdate | fzf --ansi --height=20% --info=inline --preview 'git log -n 5 --color=always --oneline {-1}'
+    $branch = git branch --all --sort=-committerdate --format="%(refname:short)" | fzf --ansi --height=20% --info=inline --preview 'git log -n 5 --color=always --oneline {-1}'
 
-    if ($branch) {
-        git switch $branch.trim()
+    if (-not $branch) {
+        return
     }
+
+    $selectedBranch = $branch.Trim()
+
+    git show-ref --verify --quiet "refs/heads/$selectedBranch"
+    if ($LASTEXITCODE -eq 0) {
+        git switch @args $selectedBranch
+        return
+    }
+
+    git show-ref --verify --quiet "refs/remotes/$selectedBranch"
+    if ($LASTEXITCODE -eq 0) {
+        $localBranch = $selectedBranch.Substring($selectedBranch.IndexOf('/') + 1)
+
+        git show-ref --verify --quiet "refs/heads/$localBranch"
+        if ($LASTEXITCODE -eq 0) {
+            git switch @args $localBranch
+        }
+        else {
+            git switch @args --track $selectedBranch
+        }
+
+        return
+    }
+
+    git switch @args $selectedBranch
 }
 
 function Change-Project {
