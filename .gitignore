@@ -1,1 +1,3 @@
 *.backup
+*/telemetry
+github-copilot/*
