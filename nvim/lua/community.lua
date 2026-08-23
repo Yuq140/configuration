@@ -18,6 +18,7 @@ return {
     { import = "astrocommunity.pack.tailwindcss" },
     { import = "astrocommunity.pack.cs-omnisharp" },
     { import = "astrocommunity.pack.mdx" },
+    { import = "astrocommunity.pack.go" },
 
     { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
     { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
