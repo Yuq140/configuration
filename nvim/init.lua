@@ -25,3 +25,5 @@ end
 
 require "lazy_setup"
 require "polish"
+
+vim.lsp.log.set_level(vim.log.levels.ERROR)
