@@ -88,8 +88,8 @@ function gwt {
     }
 }
 
-function gsw {
-    $branch = git branch --all --sort=-committerdate --format="%(refname:short)" | fzf --ansi --height=20% --info=inline --preview 'git log -n 5 --color=always --oneline {-1}'
+{
+    $branch = git branch --all --sort=-committerdate --format="%(refname:short)" | fzf --ansi --height=40% --border --prompt "Select branch: " --preview 'git log -n 5 --color=always --oneline {-1}'
 
     if (-not $branch) {
         return
